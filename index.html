@@ -1,11 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Biblioteca UTN</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+    <header><h1>Biblioteca UTN</h1><img src="img/UTN_logo.jpg" alt="UTN Logo"></header>
     
+    <main>
+        <h3>Libros disponibles:</h3>
+        <div id="biblioteca"></div>
+
+        <h3>Buscar Libros por Autor:</h3>
+        <form id="search-form">
+            <input type="search" id="search" placeholder="Ingrese el nombre del autor">
+            <button type="submit">Buscar</button>
+        </form>
+        <div class="results" id="results"></div>
+
+        <h3>Agregar libro</h3>
+        <form class="agregar-libro" id="formulario">
+            <input type="text" id="titulo" placeholder="Título del libro">
+            <input type="text" id="autor" placeholder="Autor">
+            <input type="number" id="año" placeholder="Año de publicación">
+            <input type="text" id="genero" placeholder="Género">
+            <button type="button" id="agregarLibro">Agregar libro</button>
+        </form>
+    </main>
+    
+    <footer>
+        ©2024 Made By Leandro Rojano
+    </footer>
+<script src="js/app.js"></script>
 </body>
 </html>
