@@ -17,7 +17,7 @@ Tareas a realizar:
     - Prueba tu código añadiendo un nuevo libro a la biblioteca y luego buscando libros por un autor específico.
 
 ## Imágenes del proyecto
-![image](https://github.com/leoito88/library-manager/assets/59623841/8dc55082-e3a2-4124-9447-d98f639b70c2)
+![image](https://github.com/leoito88/library-manager/assets/59623841/9d9e0f5e-8e26-4e3e-8198-120433d3bab3)
 
 La página está compuesta de 3 partes:
 - Biblioteca con los libros disponibles
