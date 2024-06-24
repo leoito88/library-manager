@@ -65,6 +65,7 @@ biblioteca.forEach(libro => {
 });
 
 
+
 // Agregamos un libro al hacer clic en el botón
 let agregarLibroBtn = document.getElementById("agregarLibro");
 agregarLibroBtn.addEventListener("click", () => {
@@ -90,4 +91,51 @@ agregarLibroBtn.addEventListener("click", () => {
 function añadirLibro(titulo, autor, añoPublicacion, genero) {
     let nuevoLibro = new Libro(titulo, autor, añoPublicacion, genero);
     biblioteca.push(nuevoLibro);
+}
+
+
+
+// Formulario de búsqueda de libros por Autor:
+let form = document.getElementById("search-form");
+let resultsDiv = document.getElementById("results");
+let search = document.getElementById("search");
+
+// Buscar libros por autor
+function buscarLibrosPorAutor(autorBuscado) {
+    return biblioteca.filter(libro => libro.autor.toLowerCase().includes(autorBuscado.toLowerCase()));
+}
+
+function buscarLibros() {
+    const search = document.getElementById("search");
+    search.addEventListener("input", e => {
+        const inputText = e.target.value.trim().toLowerCase();
+        
+        if (inputText === "") {
+            // Si no hay texto ingresado, muestra un mensaje
+            resultsDiv.textContent = "Ingrese un autor para buscar";
+        } else {
+            // Si hay texto ingresado, filtra y muestra los libros
+            const mostrarFiltrado = biblioteca.filter(libro => libro.autor.toLowerCase().includes(inputText));
+            mostrarLibrosPorAutor(mostrarFiltrado);
+        }
+    });
+}
+
+function mostrarLibrosPorAutor(librosEncontrados) {
+    const resultsDiv = document.getElementById("results");
+    limpiarHTML(); // Limpiamos los resultados anteriores
+
+    librosEncontrados.forEach(libro => {
+        const libroDivResult = document.createElement("div");
+        libroDivResult.className = "libroResult";
+        libroDivResult.textContent = libro.info();
+        resultsDiv.appendChild(libroDivResult);
+    });
+}
+
+function limpiarHTML() {
+    const resultsDiv = document.getElementById("results");
+    while (resultsDiv.firstChild) {
+        resultsDiv.removeChild(resultsDiv.firstChild);
+    }
 }
