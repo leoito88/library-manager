@@ -63,3 +63,31 @@ biblioteca.forEach(libro => {
     libroDiv.textContent = libro.info();
     bibliotecaDiv.appendChild(libroDiv);
 });
+
+
+// Agregamos un libro al hacer clic en el botón
+let agregarLibroBtn = document.getElementById("agregarLibro");
+agregarLibroBtn.addEventListener("click", () => {
+    let titulo = document.getElementById("titulo").value;
+    let autor = document.getElementById("autor").value;
+    let añoPublicacion = parseInt(document.getElementById("año").value);
+    let genero = document.getElementById("genero").value;
+
+    // Agregamos el nuevo libro a la biblioteca
+    añadirLibro(titulo, autor, añoPublicacion, genero);
+
+    // Actualizamos la lista de libros mostrada en la página
+    let bibliotecaDiv = document.getElementById("biblioteca");
+    bibliotecaDiv.innerHTML = ""; // Limpiamos la lista actual
+    biblioteca.forEach(libro => {
+        let libroDiv = document.createElement("div");
+        libroDiv.textContent = libro.info();
+        bibliotecaDiv.appendChild(libroDiv);
+    });
+});
+
+// Función para agregar un nuevo libro
+function añadirLibro(titulo, autor, añoPublicacion, genero) {
+    let nuevoLibro = new Libro(titulo, autor, añoPublicacion, genero);
+    biblioteca.push(nuevoLibro);
+}
